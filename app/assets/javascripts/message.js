@@ -56,11 +56,13 @@ $(function(){
         let html = buildHTML(data);
         $('.MessageField').append(html);      
         $('form')[0].reset();
-        $('input').prop('disabled', false);
         $('.MessageField').animate({scrollTop: $('.MessageField')[0].scrollHeight}, 50);
-　　　 })
+     })
         .fail(function() {
           alert("メッセージ送信に失敗しました");
+      })
+      .always(function() {
+        $('input').prop('disabled', false);
       });
     });
   });
